@@ -39,3 +39,30 @@ sort([1, 2, 3], [4, 5, 6]);
 
 sort([3, 4], [1, 2, 3]);
 //[1,2,3,3,4]
+
+
+////Given two already-sorted arrays, return new list of all elements, sorted. But not using the .sort() method
+
+
+//input: two arrays
+//output: one array sorted
+
+//check the 0 index of one against other, then spred with whichever one is less in front.
+
+//run a for loop and check which is less as you go through one against the other
+
+const sorted = (arr1, arr2) => {
+	let merged = [...arr1,...arr2]
+	let sorted = []
+	
+	while (merged.length) {
+		let max = Math.max(...merged)
+		let idx = merged.indexOf(max)
+		merged.splice(idx,1)
+		sorted.unshift(max)
+	}
+	console.log(sorted)
+}
+
+
+sorted([1,2,3,4], [3,4,5,6])
